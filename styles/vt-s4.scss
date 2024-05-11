@@ -1,0 +1,33 @@
+body {
+  background-color: green;
+  font-family: "monospace";
+
+}
+
+.flex {
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+
+  table {
+    .head {
+      background-color: black;
+    }
+
+    .Platinum {
+      background-color: #2fcfc2;
+    }
+
+    .Diamond {
+      background-color: #b9f2ff;
+    }
+
+    .Jade {
+      background-color: #85fa85;
+    }
+
+    .Master {
+      background-color: #ec44ca;
+    }
+  }
+}

@@ -203,105 +203,115 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
   $bouncets = 'Master';
 }
 
-$bg = 'rgb(0, 30, 38)'
+$bg = 'Jade'
 ?>
 
 <head>
+    <link rel="stylesheet" href="styles/vt-s4.scss">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    <title>VT S4 INTER</title>
 </head>
 
-<body class="bg-[#222831]">
+<body >
+
+
   <form method="GET" id="my_form"></form>
 
-  <div class='relative flex justify-center items-center ml-5 '>
-    <table class='bg-[#DBE2EF] list-none text-white/60  outline outline-offset-2'>
-      <tr class='bg-[#A5DD9B]'>
+  <div class='flex'>
+    <table class="tabela">
+      <tr class='head'>
         <th>Scenario</th>
         <th>High Score</th>
         <th>Rank</th>
       </tr>
       <tr>
-        <td class='bg-yellow'> VT Pasu Rasp Intermediate</td>
+        <td class='<?= $bg ?>'> VT Pasu Rasp Intermediate</td>
         <td><input class="text-[#EADFB4]"  type="number" name="rasp" form="my_form" /></td>
-        <td class='<?= $colors['' . $rasp] ?>'><?= $rasp ?></td>
+          <td class='<?= $rasp ?>'><?= $rasp ?></td>
+
       </tr>
       <tr>
         <td class='bg-yellow-500'> VT Bounceshot Intermediate</td>
         <td><input class="text-black" type="number" name="bounceshot" form="my_form" /></td>
-        <td class='<?= $colors['' . $bounceshot] ?>'><?= $bounceshot ?></td>
+          <td class='<?= $bounceshot ?>'><?= $bounceshot ?></td>
       </tr>
       <tr>
         <td class='bg-red-500'> VT 1w5s Rasp Intermediate</td>
         <td><input class="text-black" type="number" name="onew5ts" form="my_form" /></td>
-        <td class='<?= $colors['' . $onew5ts] ?>'><?= $onew5ts ?></td>
+          <td class='<?= $onew5ts ?>'><?= $onew5ts ?></td>
       </tr>
       <tr>
         <td class='bg-red-500'> VT Multiclick 120 Intermediate</td>
         <td><input class="text-black" type="number" name="multiclick" form="my_form" /></td>
-        <td class='<?= $colors['' . $multiclick] ?>'><?= $multiclick ?></td>
+          <td class='<?= $multiclick ?>'><?= $multiclick ?></td>
       </tr>
       <tr>
         <td class='bg-pink-500'> VT AngleStrafe Intermediate</td>
         <td><input class="text-black" type="number" name="anglestrafe" form="my_form" /></td>
-        <td class='<?= $colors['' . $anglestrafe] ?>'><?= $anglestrafe ?></td>
+          <td class='<?= $anglestrafe ?>'><?= $anglestrafe ?></td>
       </tr>
       <tr>
         <td class='bg-pink-500'> VT ArcStrafe Intermediate</td>
         <td><input class="text-black" type="number" name="arcstrafe" form="my_form" /></td>
-        <td class='<?= $colors['' . $arcstrafe] ?>'><?= $arcstrafe ?></td>
+          <td class='<?= $arcstrafe ?>'><?= $arcstrafe ?></td>
       </tr>
       <tr>
         <td class='bg-green-500'> VT Smoothbot Intermediate</td>
         <td><input class="text-black" type="number" name="smoothbot" form="my_form" /></td>
-        <td class='<?= $colors['' . $smoothbot] ?>'><?= $smoothbot ?></td>
+          <td class='<?= $smoothbot ?>'><?= $smoothbot ?></td>
       </tr>
       <tr>
         <td class='bg-green-500'> VT PreciseOrb Intermediate</td>
         <td><input class="text-black" type="number" name="preciseorb" form="my_form" /></td>
-        <td class='<?= $colors['' . $preciseorb] ?>'><?= $preciseorb ?></td>
+          <td class='<?= $preciseorb ?>'><?= $preciseorb ?></td>
       </tr>
       <tr>
         <td class='bg-blue-500'> VT Plaza Intermediate</td>
         <td><input class="text-black" type="number" name="plaza" form="my_form" /></td>
-        <td class='<?= $colors['' . $plaza] ?>'><?= $plaza ?></td>
+          <td class='<?= $plaza ?>'><?= $plaza ?></td>
       </tr>
       <tr>
         <td class='bg-blue-500'> VT Air Intermediate</td>
         <td><input class="text-black" type="number" name="air" form="my_form" /></td>
-        <td class='<?= $colors['' . $air] ?>'><?= $air ?></td>
+          <td class='<?= $air ?>'><?= $air ?></td>
       </tr>
       <tr>
         <td class='bg-pink-500'> VT PatStrafe Intermediate</td>
         <td><input class="text-black" type="number" name="patstrafe" form="my_form" /></td>
-        <td class='<?= $colors['' . $patstrafe] ?>'><?= $patstrafe ?></td>
+          <td class='<?= $patstrafe ?>'><?= $patstrafe ?></td>
       </tr>
       <tr>
         <td class='bg-pink-500'> VT AirStrafe Intermediate</td>
         <td><input class="text-black" type="number" name="airstrafe" form="my_form" /></td>
-        <td class='<?= $colors['' . $airstrafe] ?>'><?= $airstrafe ?></td>
+          <td class='<?= $airstrafe ?>'><?= $airstrafe ?></td>
       </tr>
       <tr>
         <td class='bg-red-500'> VT psalmTS Intermediate</td>
         <td><input class="text-black" type="number" name="psalmts" form="my_form" /></td>
-        <td class='<?= $colors['' . $psalmts] ?>'><?= $psalmts ?></td>
+          <td class='<?= $psalmts ?>'><?= $psalmts ?></td>
       </tr>
       <tr>
         <td class='bg-red-500'> VT skyTS Intermediate</td>
         <td><input class="text-black" type="number" name="skyts" form="my_form" /></td>
-        <td class='<?= $colors['' . $skyts] ?>'><?= $skyts ?></td>
+          <td class='<?= $skyts ?>'><?= $skyts ?></td>
       </tr>
       <tr>
         <td class='bg-purple-700'> VT evaTS Intermediate</td>
         <td><input class="text-black" type="number" name="evats" form="my_form" /></td>
-        <td class='<?= $colors['' . $evats] ?>'><?= $evats ?></td>
+          <td class='<?= $evats ?>'><?= $evats ?></td>
       </tr>
       <tr>
         <td class='bg-purple-700'> VT bounceTS Intermediate</td>
         <td><input class="text-black" type="number" name="bouncets" form="my_form" /></td>
-        <td class='<?= $colors['' . $bouncets] ?>'><?= $bouncets ?></td>
+          <td class='<?= $bouncets ?>'><?= $bouncets ?></td>
       </tr>
     </table>
     <button type="submit" form="my_form" class="bg-red-500 ml-4 w-32 h-8">Apply Changes</button>
   </div>
+  <button action="clicked.php">asd</button>
+
+  <button hx-post="clicked.php" hx-trigger="click">Click Me</button>
+
 
 </body>

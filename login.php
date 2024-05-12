@@ -3,12 +3,7 @@ session_start();
 
 echo $_SESSION['id'];
 // Database connection
-$host = "192.168.0.134";
-$username = "bot";
-$password = "bot";
-$database = "test";
-
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 echo $conn->get_warnings();
 
 // Check connection

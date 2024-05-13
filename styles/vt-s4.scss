@@ -7,6 +7,15 @@ body {
 .flex {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  margin-left: 50vh;
+  margin-right: 50vh;
+  gap: 5px;
+
+  h1 {
+    color: green;
+  }
+
 
   input {
     background-color: #1a1a1a;
@@ -65,63 +74,11 @@ body {
   }
 
   table {
+    // position: absolute;
     background-color: #1a1a1a;
     border: 2px solid #333;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-    // RANKS
-    .Platinum {
-      background-color: #2fcfc2;
-    }
-
-    .Diamond {
-      background-color: #b9f2ff;
-    }
-
-    .Jade {
-      background-color: #85fa85;
-    }
-
-    .Master {
-      background-color: #ec44ca;
-    }
-
-    //  SCENARIO COLORS
-
-
-    // 2 same classes, because when I have only one .dynamic, then my styles doesnt work xd
-    .Dynamic {
-      background-color: #fff1aa;
-    }
-
-    .dynamic {
-      background-color: #fff1aa;
-    }
-
-    .static {
-      background-color: #ea9999;
-    }
-
-    .strafe {
-      background-color: #fed0fe;
-    }
-
-    .precise {
-      background-color: #a2c4c9;
-    }
-
-    .reactive {
-      background-color: #a4c2f4;
-    }
-
-    .speed {
-      background-color: #d5a6bd;
-    }
-
-    .evasive {
-      background-color: #b4a7d6;
-    }
 
     td {
       border: 1px solid #333;
@@ -133,6 +90,10 @@ body {
       color: #fff;
       font-weight: bold;
       text-transform: uppercase;
+    }
+
+    .sb {
+      position: relative;
     }
 
   }

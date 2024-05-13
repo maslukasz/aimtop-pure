@@ -6,6 +6,13 @@ body {
 .flex {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  margin-left: 50vh;
+  margin-right: 50vh;
+  gap: 5px;
+}
+.flex h1 {
+  color: green;
 }
 .flex input {
   background-color: #1a1a1a;
@@ -52,42 +59,6 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.flex table .Platinum {
-  background-color: #2fcfc2;
-}
-.flex table .Diamond {
-  background-color: #b9f2ff;
-}
-.flex table .Jade {
-  background-color: #85fa85;
-}
-.flex table .Master {
-  background-color: #ec44ca;
-}
-.flex table .Dynamic {
-  background-color: #fff1aa;
-}
-.flex table .dynamic {
-  background-color: #fff1aa;
-}
-.flex table .static {
-  background-color: #ea9999;
-}
-.flex table .strafe {
-  background-color: #fed0fe;
-}
-.flex table .precise {
-  background-color: #a2c4c9;
-}
-.flex table .reactive {
-  background-color: #a4c2f4;
-}
-.flex table .speed {
-  background-color: #d5a6bd;
-}
-.flex table .evasive {
-  background-color: #b4a7d6;
-}
 .flex table td {
   border: 1px solid #333;
   padding: 8px;
@@ -97,4 +68,7 @@ body {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
+}
+.flex table .sb {
+  position: relative;
 }/*# sourceMappingURL=vt-s4.css.map */

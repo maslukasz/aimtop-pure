@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <br><br>
         <a href="https://discord.gg/QJauGpg7zg" target="_blank" class="buttons">
-            <button class="btn-pastel-pink">Discord Server</button>
+            <button class="btn-pastel-blue">Discord Server</button>
         </a>
         <a href="login.php" class="buttons">
             <button class="btn-pastel-blue">Login</button>

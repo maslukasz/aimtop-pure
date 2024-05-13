@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['user_id'];
 
 if (!isset($_SESSION['user_id'])) {
     // User is not logged in, redirect to login page
@@ -225,14 +224,16 @@ $bg = 'Jade'
     <title>VT S4 INTER</title>
 </head>
 
+<?php require_once 'components/navbar.php' ?>
+
 <body>
 
 
     <form method="GET" id="my_form"></form>
 
-    <?= getenv('DB_NAME') ?>
-
     <div class='flex'>
+
+        <h1>aimtop</h1>
         <table>
             <tr class='head'>
                 <th>Scenario</th>
@@ -321,11 +322,11 @@ $bg = 'Jade'
                 <td class='<?= $bouncets ?>'><?= $bouncets ?></td>
             </tr>
         </table>
-        <button type="submit" form="my_form" class="bg-red-500 ml-4 w-32 h-8">Apply Changes</button>
+        <button type="submit" form="my_form" class="sb">Apply Changes</button>
     </div>
-    <button action="clicked.php">asd</button>
+    <!-- <button action="clicked.php">asd</button>
 
-    <button hx-post="clicked.php" hx-trigger="click">Click Me</button>
+    <button hx-post="clicked.php" hx-trigger="click">Click Me</button> -->
 
 
 </body>

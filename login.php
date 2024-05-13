@@ -56,10 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <br><br>
         <a href="https://discord.gg/QJauGpg7zg" target="_blank" class="buttons">
-            <button>Discord Server</button>
+            <button class="btn-pastel-blue">Discord Server</button>
         </a>
         <a href="register.php" class="buttons">
-            <button>Register</button>
+            <button class="btn-pastel-blue">Register</button>
         </a>
     </div>
 

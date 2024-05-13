@@ -1,4 +1,13 @@
 <?php
+session_start();
+echo $_SESSION['user_id'];
+
+if (!isset($_SESSION['user_id'])) {
+    // User is not logged in, redirect to login page
+    header('Location: login.php');
+    exit();
+}
+
 
 $rasp = '';
 $bounceshot = '';
@@ -205,116 +214,118 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
 }
 
 $bg = 'Jade'
-?>
+    ?>
 
 <head>
     <link rel="stylesheet" href="styles/vt-s4.scss">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/htmx.org@1.9.12"
-            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
-            crossorigin="anonymous"></script>
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+        crossorigin="anonymous"></script>
     <title>VT S4 INTER</title>
 </head>
 
 <body>
 
 
-<form method="GET" id="my_form"></form>
+    <form method="GET" id="my_form"></form>
 
-<div class='flex'>
-    <table>
-        <tr class='head'>
-            <th>Scenario</th>
-            <th>High Score</th>
-            <th>Rank</th>
-        </tr>
-        <tr>
-            <td class='dynamic'> VT Pasu Rasp Intermediate</td>
-            <td><input class="text-[#EADFB4]" type="number" name="rasp" form="my_form"/></td>
-            <td class='<?= $rasp ?>'><?= $rasp ?></td>
+    <?= getenv('DB_NAME') ?>
 
-        </tr>
-        <tr>
-            <td class='dynamic'> VT Bounceshot Intermediate</td>
-            <td><input type="number" name="bounceshot" form="my_form"/></td>
-            <td class='<?= $bounceshot ?>'><?= $bounceshot ?></td>
-        </tr>
-        <tr>
-            <td class='static'> VT 1w5s Rasp Intermediate</td>
-            <td><input type="number" name="onew5ts" form="my_form"/></td>
-            <td class='<?= $onew5ts ?>'><?= $onew5ts ?></td>
-        </tr>
-        <tr>
-            <td class='static'> VT Multiclick 120 Intermediate</td>
-            <td><input type="number" name="multiclick" form="my_form"/></td>
-            <td class='<?= $multiclick ?>'><?= $multiclick ?></td>
-        </tr>
-        <tr>
-            <td class='strafe'> VT AngleStrafe Intermediate</td>
-            <td><input type="number" name="anglestrafe" form="my_form"/></td>
-            <td class='<?= $anglestrafe ?>'><?= $anglestrafe ?></td>
-        </tr>
-        <tr>
-            <td class='strafe'> VT ArcStrafe Intermediate</td>
-            <td><input type="number" name="arcstrafe" form="my_form"/></td>
-            <td class='<?= $arcstrafe ?>'><?= $arcstrafe ?></td>
-        </tr>
-        <tr>
-            <td class='precise'> VT Smoothbot Intermediate</td>
-            <td><input type="number" name="smoothbot" form="my_form"/></td>
-            <td class='<?= $smoothbot ?>'><?= $smoothbot ?></td>
-        </tr>
-        <tr>
-            <td class='precise'> VT PreciseOrb Intermediate</td>
-            <td><input type="number" name="preciseorb" form="my_form"/></td>
-            <td class='<?= $preciseorb ?>'><?= $preciseorb ?></td>
-        </tr>
-        <tr>
-            <td class='reactive'> VT Plaza Intermediate</td>
-            <td><input type="number" name="plaza" form="my_form"/></td>
-            <td class='<?= $plaza ?>'><?= $plaza ?></td>
-        </tr>
-        <tr>
-            <td class='reactive'> VT Air Intermediate</td>
-            <td><input type="number" name="air" form="my_form"/></td>
-            <td class='<?= $air ?>'><?= $air ?></td>
-        </tr>
-        <tr>
-            <td class='strafe'> VT PatStrafe Intermediate</td>
-            <td><input type="number" name="patstrafe" form="my_form"/></td>
-            <td class='<?= $patstrafe ?>'><?= $patstrafe ?></td>
-        </tr>
-        <tr>
-            <td class='strafe'> VT AirStrafe Intermediate</td>
-            <td><input type="number" name="airstrafe" form="my_form"/></td>
-            <td class='<?= $airstrafe ?>'><?= $airstrafe ?></td>
-        </tr>
-        <tr>
-            <td class='speed'> VT psalmTS Intermediate</td>
-            <td><input type="number" name="psalmts" form="my_form"/></td>
-            <td class='<?= $psalmts ?>'><?= $psalmts ?></td>
-        </tr>
-        <tr>
-            <td class='speed'> VT skyTS Intermediate</td>
-            <td><input type="number" name="skyts" form="my_form"/></td>
-            <td class='<?= $skyts ?>'><?= $skyts ?></td>
-        </tr>
-        <tr>
-            <td class='evasive'> VT evaTS Intermediate</td>
-            <td><input type="number" name="evats" form="my_form"/></td>
-            <td class='<?= $evats ?>'><?= $evats ?></td>
-        </tr>
-        <tr>
-            <td class='evasive'> VT bounceTS Intermediate</td>
-            <td><input type="number" name="bouncets" form="my_form"/></td>
-            <td class='<?= $bouncets ?>'><?= $bouncets ?></td>
-        </tr>
-    </table>
-    <button type="submit" form="my_form" class="bg-red-500 ml-4 w-32 h-8">Apply Changes</button>
-</div>
-<button action="clicked.php">asd</button>
+    <div class='flex'>
+        <table>
+            <tr class='head'>
+                <th>Scenario</th>
+                <th>High Score</th>
+                <th>Rank</th>
+            </tr>
+            <tr>
+                <td class='dynamic'> VT Pasu Rasp Intermediate</td>
+                <td><input class="text-[#EADFB4]" type="number" name="rasp" form="my_form" /></td>
+                <td class='<?= $rasp ?>'><?= $rasp ?></td>
 
-<button hx-post="clicked.php" hx-trigger="click">Click Me</button>
+            </tr>
+            <tr>
+                <td class='dynamic'> VT Bounceshot Intermediate</td>
+                <td><input type="number" name="bounceshot" form="my_form" /></td>
+                <td class='<?= $bounceshot ?>'><?= $bounceshot ?></td>
+            </tr>
+            <tr>
+                <td class='static'> VT 1w5s Rasp Intermediate</td>
+                <td><input type="number" name="onew5ts" form="my_form" /></td>
+                <td class='<?= $onew5ts ?>'><?= $onew5ts ?></td>
+            </tr>
+            <tr>
+                <td class='static'> VT Multiclick 120 Intermediate</td>
+                <td><input type="number" name="multiclick" form="my_form" /></td>
+                <td class='<?= $multiclick ?>'><?= $multiclick ?></td>
+            </tr>
+            <tr>
+                <td class='strafe'> VT AngleStrafe Intermediate</td>
+                <td><input type="number" name="anglestrafe" form="my_form" /></td>
+                <td class='<?= $anglestrafe ?>'><?= $anglestrafe ?></td>
+            </tr>
+            <tr>
+                <td class='strafe'> VT ArcStrafe Intermediate</td>
+                <td><input type="number" name="arcstrafe" form="my_form" /></td>
+                <td class='<?= $arcstrafe ?>'><?= $arcstrafe ?></td>
+            </tr>
+            <tr>
+                <td class='precise'> VT Smoothbot Intermediate</td>
+                <td><input type="number" name="smoothbot" form="my_form" /></td>
+                <td class='<?= $smoothbot ?>'><?= $smoothbot ?></td>
+            </tr>
+            <tr>
+                <td class='precise'> VT PreciseOrb Intermediate</td>
+                <td><input type="number" name="preciseorb" form="my_form" /></td>
+                <td class='<?= $preciseorb ?>'><?= $preciseorb ?></td>
+            </tr>
+            <tr>
+                <td class='reactive'> VT Plaza Intermediate</td>
+                <td><input type="number" name="plaza" form="my_form" /></td>
+                <td class='<?= $plaza ?>'><?= $plaza ?></td>
+            </tr>
+            <tr>
+                <td class='reactive'> VT Air Intermediate</td>
+                <td><input type="number" name="air" form="my_form" /></td>
+                <td class='<?= $air ?>'><?= $air ?></td>
+            </tr>
+            <tr>
+                <td class='strafe'> VT PatStrafe Intermediate</td>
+                <td><input type="number" name="patstrafe" form="my_form" /></td>
+                <td class='<?= $patstrafe ?>'><?= $patstrafe ?></td>
+            </tr>
+            <tr>
+                <td class='strafe'> VT AirStrafe Intermediate</td>
+                <td><input type="number" name="airstrafe" form="my_form" /></td>
+                <td class='<?= $airstrafe ?>'><?= $airstrafe ?></td>
+            </tr>
+            <tr>
+                <td class='speed'> VT psalmTS Intermediate</td>
+                <td><input type="number" name="psalmts" form="my_form" /></td>
+                <td class='<?= $psalmts ?>'><?= $psalmts ?></td>
+            </tr>
+            <tr>
+                <td class='speed'> VT skyTS Intermediate</td>
+                <td><input type="number" name="skyts" form="my_form" /></td>
+                <td class='<?= $skyts ?>'><?= $skyts ?></td>
+            </tr>
+            <tr>
+                <td class='evasive'> VT evaTS Intermediate</td>
+                <td><input type="number" name="evats" form="my_form" /></td>
+                <td class='<?= $evats ?>'><?= $evats ?></td>
+            </tr>
+            <tr>
+                <td class='evasive'> VT bounceTS Intermediate</td>
+                <td><input type="number" name="bouncets" form="my_form" /></td>
+                <td class='<?= $bouncets ?>'><?= $bouncets ?></td>
+            </tr>
+        </table>
+        <button type="submit" form="my_form" class="bg-red-500 ml-4 w-32 h-8">Apply Changes</button>
+    </div>
+    <button action="clicked.php">asd</button>
+
+    <button hx-post="clicked.php" hx-trigger="click">Click Me</button>
 
 
 </body>

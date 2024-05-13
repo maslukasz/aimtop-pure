@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['user_id'];
+
 // Database connection
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
 

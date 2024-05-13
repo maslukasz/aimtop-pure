@@ -342,7 +342,7 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
     <title>VT S4 INTER</title>
 </head>
 
-<?php require_once 'components/navbar.php' ?>
+<?php require_once 'components/layout/navbar.php' ?>
 
 <body>
 

@@ -1,5 +1,5 @@
 body {
-  background-color: #424769;
+  background-color: #3cb371;
 }
 
 .box {
@@ -22,6 +22,7 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.box form input[type=username],
 .box form input[type=email],
 .box form input[type=password] {
   width: 100%;

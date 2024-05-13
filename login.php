@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        if ($password === $row["password"]) {
+        if (password_verify($password, $row["password"])) {
             $_SESSION["user_id"] = $row["id"];
             header("Location: index.php");
             exit();
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="box">
-        <h2>Login</h2>
+        <h2>Login to aimtop</h2>
         <?php if (isset($error)) { ?>
             <p style="color: red;"><?php echo $error; ?></p>
         <?php } ?>

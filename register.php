@@ -11,13 +11,16 @@ if ($conn->connect_error) {
 
 // Registration logic
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
 
+    $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
     // Check if email already exists
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
-    $stmt->bind_param("s", $email);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email=? OR name=?");
+    $stmt->bind_param("ss", $email, $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -27,9 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Passwords do not match";
     } else {
         // Insert new user
-        $name = 'czarek';
         $stmt = $conn->prepare("INSERT INTO users (email, password, name) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $email, $password, $name);
+        $stmt->bind_param("sss", $email, $hashPassword, $username);
         $stmt->execute();
         header("Location: index.php");
         exit();
@@ -52,6 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p style="color: red;"><?php echo $error; ?></p>
         <?php } ?>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label>Username:</label>
+            <input type="text" name="username" required><br><br>
             <label>Email:</label>
             <input type="email" name="email" required><br><br>
             <label>Password:</label>

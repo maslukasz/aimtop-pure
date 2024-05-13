@@ -350,7 +350,6 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
     <form method="GET" id="my_form"></form>
 
     <div class='flex'>
-
         <span>Voltaic KvKs Intermediate Benchmarks S4 - Intermediate</span>
         <table>
             <tr class='head'>

@@ -11,7 +11,7 @@ body {
   margin-right: 50vh;
   gap: 5px;
 }
-.flex h1 {
+.flex span {
   color: green;
 }
 .flex input {
@@ -69,6 +69,9 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-.flex table .sb {
-  position: relative;
+.flex .sb {
+  background-color: lightgreen;
+  width: 200px;
+  height: 50px;
+  align-self: center;
 }/*# sourceMappingURL=vt-s4.css.map */

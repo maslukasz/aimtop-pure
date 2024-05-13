@@ -1,28 +1,20 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    // User is not logged in, redirect to login page
-    header('Location: login.php');
-    exit();
+$conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
-$conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
-// $stmt = $conn->prepare("SELECT rasp FROM vt_s4 WHERE user_id=2");
-// $stmt->bind_param("i", $_SESSION['user_id']);
-// $stmt->execute();
+// USER QUERY
 $q = $conn->query("SELECT rasp, bounceshot, onew5ts, multiclick, anglestrafe, smoothbot, preciseorb, plaza, air, patstrafe, airstrafe, psalmts, skyts, evats, bouncets, arcstrafe FROM vt_s4 WHERE user_id = " . $_SESSION['user_id']);
 $res2 = $q->fetch_all();
 $q2 = $conn->query("SELECT rasp_rank, bounceshot_rank, onew5ts_rank, multiclick_rank, anglestrafe_rank, smoothbot_rank, preciseorb_rank, plaza_rank, air_rank, patstrafe_rank, airstrafe_rank, psalmts_rank, skyts_rank, evats_rank, bouncets_rank, arcstrafe_rank FROM vt_s4 WHERE user_id = " . $_SESSION['user_id']);
 $res = $q2->fetch_all();
-// $res = $stmt->get_result();
 
-// $rasp = ($res)
+// INIT VARIABLES
 $rasp = (intval($res2[0][0]) != 0 ? $rasp = intval($res2[0][0]) : $rasp = 0);
 $bounceshot = (intval($res2[0][1]) != 0 ? $bounceshot = intval($res2[0][1]) : $bounceshot = 0);
 $onew5ts = (intval($res2[0][2]) != 0 ? $onew5ts = intval($res2[0][2]) : $onew5ts = 0);
@@ -57,46 +49,18 @@ $evats_rank = ($res[0][13] != 0 || '' ? $evats_rank = $res[0][13] : $evats_rank 
 $bouncets_rank = ($res[0][14] != 0 || '' ? $bouncets_rank = $res[0][14] : $bouncets_rank = '');
 $arcstrafe_rank = ($res[0][15] != 0 || '' ? $arcstrafe_rank = $res[0][15] : $arcstrafe_rank = '');
 
-$colors = [
-    'Platinum' => 'bg-blue-500',
-    'Diamond' => 'bg-purple-500',
-    'Jade' => 'bg-green-500',
-    'Master' => 'bg-pink-500'
-];
-
-
 function get_rank($task, $score, $rank)
 {
     $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
-    // $stmt = $conn->prepare("SELECT ? FROM vt_s4 WHERE user_id = ?");
-    // $stmt->bind_param("ss", $rank, $_SESSION['user_id']);
-    // $stmt->execute();
     $result = $conn->execute_query("SELECT {$task} FROM vt_s4 WHERE user_id = ?", [$_SESSION['user_id']]);
-    // echo json_encode($result->fetch_all()) . ' xdd';
     while ($row = $result->fetch_all()) {
-        echo json_encode($row) . ' kkk';
         if (intval($row) != 0 && $score != '') {
-            // $conn->execute_query("UPDATE vt_s4 SET {$task} =? WHERE user_id = ?", [$score, $_SESSION['user_id']]);
-            echo $score, $rank;
             $conn->execute_query("UPDATE vt_s4 SET {$task} = ?, {$task}_rank = ? WHERE user_id = ?", [$score, $rank, $_SESSION['user_id']]);
             header("Refresh");
         }
     }
     header('Refresh');
-    // if ($result->num_rows === 0) {
-    //     // $rank_insert = $conn->prepare('INSERT INTO vt_s4 (user_id, ' . strtolower($rank) . ' ) VALUES (?, ?)');
-    //     // $rank_insert->bind_param('si', $_SESSION['user_id'], $score);
-    //     // $rank_insert->execute();
-    //     echo 'asd';
-    // }
 }
-// $sk = 'ras';
-
-// $stmt = $conn->prepare("SELECT ? FROM vt_s4 WHERE user_id = ?");
-// $stmt->bind_param("ss", $sk, $_SESSION['user_id']);
-// $stmt->execute();
-// $result = $stmt->get_result();
-// echo json_encode($result);
 
 //  VT Pasu Rasp Intermediate
 if ($_GET['rasp'] >= 750 && $_GET['rasp'] < 850) {
@@ -342,15 +306,9 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
     <title>VT S4 INTER</title>
 </head>
 
-<?php require_once 'components/navbar.php' ?>
-
 <body>
-
-
     <form method="GET" id="my_form"></form>
-
     <div class='flex'>
-
         <span>Voltaic KvKs Intermediate Benchmarks S4 - Intermediate</span>
         <table>
             <tr class='head'>
@@ -458,9 +416,4 @@ if ($_GET['bouncets'] >= 630 && $_GET['bouncets'] < 650) {
         </table>
         <button type="submit" form="my_form" class="sb">Apply Changes</button>
     </div>
-    <!-- <button action="clicked.php">asd</button>
-
-    <button hx-post="clicked.php" hx-trigger="click">Click Me</button> -->
-
-
 </body>

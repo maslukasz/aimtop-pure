@@ -12,7 +12,7 @@ body {
   margin-right: 50vh;
   gap: 5px;
 
-  h1 {
+  span {
     color: green;
   }
 
@@ -92,9 +92,14 @@ body {
       text-transform: uppercase;
     }
 
-    .sb {
-      position: relative;
-    }
+  }
+
+  .sb {
+    background-color: lightgreen;
+    // padding: 15px 25px;
+    width: 200px;
+    height: 50px;
+    align-self: center;
 
   }
 

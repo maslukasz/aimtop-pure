@@ -1,0 +1,84 @@
+body {
+  background-color: #3cb371;
+}
+
+.box {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 100px auto;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  /* Added shadow to form box */
+}
+
+.box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.box form input[type=username],
+.box form input[type=email],
+.box form input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.box form input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.box form input[type=submit]:hover {
+  background-color: black;
+}
+
+.box .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.box .buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.box .buttons button.btn-pastel-pink {
+  background-color: #ffcce0;
+  color: #333;
+}
+
+.box .buttons button.btn-pastel-pink:hover {
+  background-color: #ffb3c6;
+}
+
+.box .buttons button.btn-pastel-blue {
+  background-color: #c9daf8;
+  color: #333;
+}
+
+.box .buttons button.btn-pastel-blue:hover {
+  background-color: #a2c4f5;
+} 
+
+/*# sourceMappingURL=login.css.map */

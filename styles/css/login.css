@@ -22,7 +22,7 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-.box form input[type=username],
+.box form input[type=text],
 .box form input[type=email],
 .box form input[type=password] {
   width: 100%;

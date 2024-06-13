@@ -69,6 +69,9 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.flex table input {
+  color: #fff;
+}
 .flex .sb {
   background-color: lightgreen;
   width: 200px;

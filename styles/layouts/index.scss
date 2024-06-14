@@ -1,0 +1,14 @@
+.benches {
+	display: flex;
+	justify-content: center;
+
+	.voltaic {
+		span {
+			color: #2F196B;
+		}
+
+		button {
+			background-color: green;
+		}
+	}
+}

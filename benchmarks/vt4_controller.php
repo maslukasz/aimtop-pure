@@ -143,8 +143,8 @@ foreach ($scenarios as $scene) {
 <body class='bd'>
 
   <div class="tab-list" role="tablist">
-    <button hx-get="../benchmarks/vt4_novice.php" role="tab" aria-selected="false" aria-controls="#bd" hx-swap='outerHTML'>Tab 1</button>
-    <button hx-get="../benchmarks/vt4_controller.php" class="selected" role="tab" aria-selected="true" aria-controls="#bd" hx-swap='outerHTML'>Tab 2</button>
+    <button hx-get="../benchmarks/vt4_novice.php" role="tab" aria-selected="false" aria-controls="#tr" hx-swap='innerHTML'>Tab 1</button>
+    <button hx-get="../benchmarks/vt4_controller.php" class="selected" role="tab" aria-selected="true" aria-controls="#tr" hx-swap='innerHTML'>Tab 2</button>
   </div>
 
 

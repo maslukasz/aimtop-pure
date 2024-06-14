@@ -4,7 +4,9 @@ body {
 
 }
 
-.flex {
+@import '../styles/components/navbar.scss';
+
+.tab-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -115,18 +117,16 @@ body {
 
   }
 
-  .sb {
+  .submit-btn {
     background-color: lightgreen;
     // padding: 15px 25px;
     width: 200px;
     height: 50px;
     align-self: center;
+    border: black;
+    border-style: solid;
 
   }
 
 
 }
-
-
-
-$voltaic: #5231dd;

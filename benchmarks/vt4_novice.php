@@ -53,7 +53,8 @@ $scores = [
   ]
 ];
 
-function save_rank($scenario, $score, $rank) {
+function save_rank($scenario, $score, $rank)
+{
   $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
   $query = $conn->query("SELECT {$scenario}, {$scenario}_rank FROM vt_s4 WHERE user_id = {$_SESSION['user_id']}");
   $result = $query->fetch_all();

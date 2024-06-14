@@ -143,9 +143,9 @@ $replace = ['VT Pasu Rasp Novice', 'VT Bounceshot Novice', 'VT 1w6ts Rasp Novice
       </tr>
       <?php foreach ($scenarios as $scene) : ?>
         <tr>
-          <th class='<?= $scores[$scene][1][2] ?>'><?= str_replace($scenarios, $replace, $scene) ?></th>
+          <td class='<?= $scores[$scene][1][2] ?>'><?= str_replace($scenarios, $replace, $scene) ?></td>
           <td><input type="number" name='<?= $scene ?>' form="my_form" /></td>
-          <td> <?= $_SESSION[$scene] ?> </td>
+          <td class="hs"> <?= $_SESSION[$scene] ?> </td>
           <td class='<?= $_SESSION[$scene . "_rank"] ?>'><?= $_SESSION[$scene . "_rank"] ?></td>
         </tr>
       <?php endforeach; ?>

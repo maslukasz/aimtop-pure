@@ -37,14 +37,6 @@ if ($conn->connect_error) {
 
   </section>
 
-  <div class="container box">
-    <div class="is-flex is-justify-content-center">
-      <button class="button is-link is-rounded is-outlined">Discord</button>
-      <button class="button is-link is-rounded is-outlined">Twitter</button>
-    </div>
-
-  </div>
-
   <section class="container">
     <div class="columns">
       <div class="column">
@@ -60,7 +52,7 @@ if ($conn->connect_error) {
           </div>
           <footer class="card-footer">
             <a href="benchmarks/vt4_novice.php" class="card-footer-item"><button class="button is-success">Novice</button></a>
-            <a href="#" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
+            <a href="benchmarks/vt4_controller.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
             <a href="#" class="card-footer-item"><button class="button is-danger" disabled>Advanced</button></a>
           </footer>
         </div>
@@ -115,5 +107,6 @@ if ($conn->connect_error) {
 
   </section>
 
+  <?php require_once 'components/layout/footer.php' ?>
 
 </body>

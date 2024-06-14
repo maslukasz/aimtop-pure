@@ -1,10 +1,15 @@
 body {
-  background-color: #1a1a1a;
+  // background-color: #1a1a1a; 
   font-family: "monospace";
+  color: #1a1a1a;
 
 }
 
-@import '../styles/components/navbar.scss';
+input {
+  background-color: #1a1a1a;
+  color: white;
+}
+
 
 .tab-container {
   display: flex;
@@ -16,11 +21,6 @@ body {
 
   span {
     color: green;
-  }
-
-
-  input {
-    background-color: #1a1a1a;
   }
 
   .Iron {
@@ -91,9 +91,17 @@ body {
     background-color: #b4a7d6;
   }
 
+  #tab-content {
+    color: black;
+  }
+
   table {
+    .hs {
+      color: whitesmoke;
+    }
+
     // position: absolute;
-    background-color: #1a1a1a;
+    // background-color: #1a1a1a;
     border: 2px solid #333;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -110,9 +118,8 @@ body {
       text-transform: uppercase;
     }
 
-    input {
-      color: #fff;
-      background-color: #1a1a1a;
+    .scen {
+      color: blue;
     }
 
   }
@@ -124,6 +131,7 @@ body {
     height: 50px;
     align-self: center;
     border: black;
+    color: black;
     border-style: solid;
 
   }

@@ -66,7 +66,8 @@ $scores = [
 ];
 
 
-function save_rank($scenario, $score, $rank) {
+function save_rank($scenario, $score, $rank)
+{
   $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
   $query = $conn->query("SELECT {$scenario}, {$scenario}_rank FROM vt_s4 WHERE user_id = {$_SESSION['user_id']}");
   $result = $query->fetch_all();
@@ -134,10 +135,13 @@ foreach ($scenarios as $scene) {
 
 <head>
   <link rel="stylesheet" href="../styles/vt-s4.scss">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
-  <title>VT S4 INTER</title>
+  <link rel="stylesheet" href="styles/components/navbar.scss">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
+
+<?php require_once '../components/layout/navbar.php'; ?>
 
 
 <body class='bd'>
@@ -150,9 +154,9 @@ foreach ($scenarios as $scene) {
 
   <form method="GET" id="my_form"></form>
 
-  <div class='flex'>
+  <div class='tab-container'>
     <span>Voltaic KvKs Intermediate Benchmarks S4 - Intermediate</span>
-    <table id='i-table'>
+    <table id='tab-content'>
       <tr class='head'>
         <th>Scenario</th>
         <th>New High Score</th>

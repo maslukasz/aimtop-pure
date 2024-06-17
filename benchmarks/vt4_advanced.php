@@ -145,7 +145,7 @@ $replace = [
 
     <form method="GET" id="my_form"></form>
     <div class='tab-container'>
-        <span>Voltaic KvKs Benchmarks S4 - Novice</span>
+        <span>Voltaic KvKs Benchmarks S4 - Advanced</span>
         <table id='tab-content'>
             <tr class='head'>
                 <th>Scenario</th>

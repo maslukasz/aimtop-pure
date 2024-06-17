@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
   // User is not logged in, redirect to login page
-  header('Location: login.php');
+  header('Location: ../login.php');
   exit();
 }
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
@@ -93,34 +93,20 @@ foreach ($_GET as $response => $value) {
 };
 
 foreach ($scenarios as $scene) {
-  if (isset($_SESSION[$scene])) {
-    break;
-  }
-
-  foreach ($scenarios as $scene) {
-    $score_q = $conn->execute_query("SELECT {$scene} FROM vt_s4_novice WHERE user_id = ?", [$_SESSION['user_id']]);
-    foreach ($score_q->fetch_all() as $task) {
-      foreach ($scenarios as $sc) {
-        $_SESSION[$scene] = $task[0];
-      }
-    }
-
-    foreach ($scenarios as $scn) {
-      $rank_q = $conn->execute_query("SELECT " . $scn . '_rank' . " FROM vt_s4_novice WHERE user_id = ?", [$_SESSION['user_id']]);
-      foreach ($rank_q->fetch_all() as $rank) {
-        if (!empty($rank)) {
-          $_SESSION[$scn . '_rank'] = $rank[0];
-        }
-      }
-    }
+  $q = "SELECT * FROM vt_s4_novice WHERE user_id = {$_SESSION['user_id']}";
+  $res = mysqli_query($conn, $q);
+  foreach (mysqli_fetch_assoc($res) as $key => $value) {
+    $_SESSION[$key] = $value;
   }
 }
+
 $replace = ['VT Pasu Rasp Novice', 'VT Bounceshot Novice', 'VT 1w6ts Rasp Novice', 'VT Multiclick 120 Novice', 'VT Smoothbot Novice', 'VT PreciseOrb Novice', 'VT Plaza Novice', 'VT Air Novice', 'VT psalmTS Novice', 'VT skyTS Novice', 'VT evaTS Novice', 'VT bounceTS Novice'];
+
 ?>
 
 <head>
   <link rel="stylesheet" href="../styles/vt-s4.scss">
-  <link rel="stylesheet" href="styles/components/navbar.scss">
+  <!-- <link rel="stylesheet" href="../styles/components/navbar.scss"> -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -133,7 +119,7 @@ $replace = ['VT Pasu Rasp Novice', 'VT Bounceshot Novice', 'VT 1w6ts Rasp Novice
 
   <form method="GET" id="my_form"></form>
   <div class='tab-container'>
-    <span>Voltaic KvKs Easy Benchmarks S4 - Intermediate</span>
+    <span>Voltaic KvKs Benchmarks S4 - Novice</span>
     <table id='tab-content'>
       <tr class='head'>
         <th>Scenario</th>
@@ -141,6 +127,7 @@ $replace = ['VT Pasu Rasp Novice', 'VT Bounceshot Novice', 'VT 1w6ts Rasp Novice
         <th>High Score</th>
         <th>Rank</th>
       </tr>
+
       <?php foreach ($scenarios as $scene) : ?>
         <tr>
           <td class='<?= $scores[$scene][1][2] ?>'><?= str_replace($scenarios, $replace, $scene) ?></td>

@@ -1,2 +1,1 @@
-[x] Password hasing 
-[x] Login and register 
+hobby project with pure php on the backend :) 

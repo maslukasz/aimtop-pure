@@ -28,16 +28,17 @@ if ($conn->connect_error) {
 <?php require 'components/layout/navbar.php' ?>
 
 <body>
-  <section class="hero is-halfheight">
-    <div class="hero-body is-justify-content-center">
-      <div class="">
-        <p class="title">aimtop </p>
+  <section class="hero is-fullheight">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <p class="title has-text-success is-family-monospace pb-5">aimtop </p>
+        <p class="subtitle"><strong class="has-text-link is-family-monospace"><a href='https://x.com/aimtop_hub' target='_blank'>aimtop</a></strong> is a <i>non-profit project</i> where <span class='is-underlined has-text-danger'>passion plays a major role</span>. We aim to help players improve in FPS games. We do not intend to duplicate the efforts of existing aim groups. Instead, we focus on <span class='has-text-success'>gathering materials</span> prepared by experienced players and consolidating them in <span class='has-text-warning'>one place</span>. There are so many groups and guides out there that it can be overwhelming, so we want to assist you in navigating this abundance of information.</p>
       </div>
     </div>
-
   </section>
 
-  <section class="container">
+  <section class="container section has-text-centered">
+    <h1 class="title mb-6 has-text-warning-light">Benchmarks tool</h1>
     <div class="columns">
       <div class="column">
         <div class="card">
@@ -46,14 +47,14 @@ if ($conn->connect_error) {
           </header>
           <div class="card-content">
             <div class="content">
-              The latest Voltaic Season 4 Benchmarks. <br /><br />
-              <a href="http://twitter.com/voltaichq target='_blank'">@Voltaic</a>.
+              <span class="tag is-warning">KovaaK</span><br><br>
+              The latest <a href="http://twitter.com/voltaichq target=' _blank'">@Voltaic</a> Season 4 Benchmarks
             </div>
           </div>
           <footer class="card-footer">
             <a href="benchmarks/vt4_novice.php" class="card-footer-item"><button class="button is-success">Novice</button></a>
             <a href="benchmarks/vt4_controller.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
-            <a href="#" class="card-footer-item"><button class="button is-danger" disabled>Advanced</button></a>
+            <a href="benchmarks/vt4_advanced.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
           </footer>
         </div>
       </div>
@@ -99,12 +100,10 @@ if ($conn->connect_error) {
 
   </div>
 
-  <section class="section is-medium content">
-    <p><strong>aimtop</strong> is a non-profit project to help the community improve in FPS games. Everything is free and open-source. I don't want to make a second Voltaic. This project can be treated as a repository of materials prepared by experienced players.</p>
+  <section class="section content is-medium">
     <blockquote>
-      The entire project is carried out as a hobby. I create everything myself and I do it for fun, not for money. The website's code may be weak, but all I care about is helping others develop.
+      From the author - the site is open-source. The code is not written by a professional. I run this project as a hobby, on the side. If there is ever any form of monetization, it will only be to cover hosting costs.
     </blockquote>
-
   </section>
 
   <?php require_once 'components/layout/footer.php' ?>

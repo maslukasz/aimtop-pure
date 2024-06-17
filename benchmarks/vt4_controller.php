@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
   // User is not logged in, redirect to login page
-  header('Location: login.php');
+  header('Location: ../login.php');
   exit();
 }
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
@@ -16,52 +16,52 @@ $scenarios = ['rasp', 'bounceshot', 'onew5ts', 'multiclick', 'anglestrafe', 'arc
 
 $scores = [
   'rasp' => [
-    1 => [750, 'Platinum'], 2 => [850, 'Diamond'], 3 => [950, 'Jade'], 4 => [1050, 'Master']
+    1 => [750, 'Platinum', 'dynamic'], 2 => [850, 'Diamond', 'dynamic'], 3 => [950, 'Jade', 'dynamic'], 4 => [1050, 'Master', 'dynamic']
   ],
   'bounceshot' => [
-    1 => [600, 'Platinum'], 2 => [700, 'Diamond'], 3 => [800, 'Jade'], 4 => [900, 'Master']
+    1 => [600, 'Platinum', 'dynamic'], 2 => [700, 'Diamond', 'dynamic'], 3 => [800, 'Jade', 'dynamic'], 4 => [900, 'Master', 'dynamic']
   ],
-  '1w5ts' => [
-    1 => [1000, 'Platinum'], 2 => [1100, 'Diamond'], 3 => [1200, 'Jade'], 4 => [1300, 'Master']
+  'onew5ts' => [
+    1 => [1000, 'Platinum', 'static'], 2 => [1100, 'Diamond', 'static'], 3 => [1200, 'Jade', 'static'], 4 => [1300, 'Master', 'static']
   ],
   'multiclick' => [
-    1 => [1360, 'Platinum'], 2 => [1460, 'Diamond'], 3 => [1560, 'Jade'], 4 => [1660, 'Master']
+    1 => [1360, 'Platinum', 'static'], 2 => [1460, 'Diamond', 'static'], 3 => [1560, 'Jade', 'static'], 4 => [1660, 'Master', 'static']
   ],
   'anglestrafe' => [
-    1 => [740, 'Platinum'], 2 => [830, 'Diamond'], 3 => [920, 'Jade'], 4 => [1000, 'Master']
+    1 => [740, 'Platinum', 'strafe'], 2 => [830, 'Diamond', 'strafe'], 3 => [920, 'Jade', 'strafe'], 4 => [1000, 'Master', 'strafe']
   ],
   'arcstrafe' => [
-    1 => [660, 'Platinum'], 2 => [750, 'Diamond'], 3 => [850, 'Jade'], 4 => [940, 'Master']
+    1 => [660, 'Platinum', 'strafe'], 2 => [750, 'Diamond', 'strafe'], 3 => [850, 'Jade', 'strafe'], 4 => [940, 'Master', 'strafe']
   ],
   'smoothbot' => [
-    1 => [3050, 'Platinum'], 2 => [3450, 'Diamond'], 3 => [3850, 'Jade'], 4 => [4250, 'Master']
+    1 => [3050, 'Platinum', 'precise'], 2 => [3450, 'Diamond', 'precise'], 3 => [3850, 'Jade', 'precise'], 4 => [4250, 'Master', 'precise']
   ],
   'preciseorb' => [
-    1 => [1650, 'Platinum'], 2 => [2050, 'Diamond'], 3 => [2450, 'Jade'], 4 => [2850, 'Master']
+    1 => [1650, 'Platinum', 'precise'], 2 => [2050, 'Diamond', 'precise'], 3 => [2450, 'Jade', 'precise'], 4 => [2850, 'Master', 'precise']
   ],
   'plaza' => [
-    1 => [2680, 'Platinum'], 2 => [2980, 'Diadmond'], 3 => [3280, 'Jade'], 4 => [3530, 'Master']
+    1 => [2680, 'Platinum', 'reactive'], 2 => [2980, 'Diadmond', 'reactive'], 3 => [3280, 'Jade', 'reactive'], 4 => [3530, 'Master', 'reactive']
   ],
   'air' => [
-    1 => [2450, 'Platinum'], 2 => [2700, 'Diamond'], 3 => [2950, 'Jade'], 4 => [3200, 'Master']
+    1 => [2450, 'Platinum', 'reactive'], 2 => [2700, 'Diamond', 'reactive'], 3 => [2950, 'Jade', 'reactive'], 4 => [3200, 'Master', 'reactive']
   ],
   'patstrafe' => [
-    1 => [2260, 'Platinum'], 2 => [2620, 'Diamond'], 3 => [2800, 'Jade'], 4 => [3050, 'Master']
+    1 => [2260, 'Platinum', 'strafe'], 2 => [2620, 'Diamond', 'strafe'], 3 => [2800, 'Jade', 'strafe'], 4 => [3050, 'Master', 'strafe']
   ],
   'airstrafe' => [
-    1 => [2800, 'Platinum'], 2 => [3000, 'Diamond'], 3 => [320, 'Jade'], 4 => [3400, 'Master']
+    1 => [2800, 'Platinum', 'strafe'], 2 => [3000, 'Diamond', 'strafe'], 3 => [320, 'Jade', 'strafe'], 4 => [3400, 'Master', 'strafe']
   ],
   'psalmts' => [
-    1 => [810, 'Platinum'], 2 => [880, 'Diamond'], 3 => [950, 'Jade'], 4 => [1020, 'Master']
+    1 => [810, 'Platinum', 'speed'], 2 => [880, 'Diamond', 'speed'], 3 => [950, 'Jade', 'speed'], 4 => [1020, 'Master', 'speed']
   ],
   'skyts' => [
-    1 => [1030, 'Platinum'], 2 => [1130, 'Diamond'], 3 => [1220, 'Jade'], 4 => [1300, 'Master']
+    1 => [1030, 'Platinum', 'speed'], 2 => [1130, 'Diamond', 'speed'], 3 => [1220, 'Jade', 'speed'], 4 => [1300, 'Master', 'speed']
   ],
   'evats' => [
-    1 => [550, 'Platinum'], 2 => [600, 'Diamond'], 3 => [650, 'Jade'], 4 => [700, 'Master']
+    1 => [550, 'Platinum', 'evasive'], 2 => [600, 'Diamond', 'evasive'], 3 => [650, 'Jade', 'evasive'], 4 => [700, 'Master', 'evasive']
   ],
   'bouncets' => [
-    1 => [630, 'Platinum'], 2 => [670, 'Diamond'], 3 => [710, 'Jade'], 4 => [700, 'Master']
+    1 => [630, 'Platinum', 'evasive'], 2 => [670, 'Diamond', 'evasive'], 3 => [710, 'Jade', 'evasive'], 4 => [700, 'Master', 'evasive']
   ]
 ];
 
@@ -106,36 +106,38 @@ foreach ($_GET as $response => $value) {
 };
 
 foreach ($scenarios as $scene) {
-  if (isset($_SESSION[$scene])) {
-    break;
-  }
-
-  foreach ($scenarios as $scene) {
-    $score_q = $conn->execute_query("SELECT {$scene} FROM vt_s4 WHERE user_id = ?", [$_SESSION['user_id']]);
-    foreach ($score_q->fetch_all() as $task) {
-      foreach ($scenarios as $sc) {
-        $_SESSION[$scene] = $task[0];
-      }
-    }
-
-    foreach ($scenarios as $scn) {
-      $rank_q = $conn->execute_query("SELECT " . $scn . '_rank' . " FROM vt_s4 WHERE user_id = ?", [$_SESSION['user_id']]);
-      foreach ($rank_q->fetch_all() as $rank) {
-        if (!empty($rank)) {
-          $_SESSION[$scn . '_rank'] = $rank[0];
-        }
-      }
-    }
+  $q = "SELECT * FROM vt_s4 WHERE user_id = {$_SESSION['user_id']}";
+  $res = mysqli_query($conn, $q);
+  foreach (mysqli_fetch_assoc($res) as $key => $value) {
+    $_SESSION[$key] = $value;
   }
 }
 
-
+$replace = [
+  'VT Pasu Rasp Intermediate',
+  'VT Bounceshot Intermediate',
+  'VT 1w5s Rasp Intermediate',
+  'VT Multiclick 120 Intermediate',
+  'VT AngleStrafe Intermediate',
+  'VT ArcStrafe Intermediate',
+  'VT Smoothbot Intermediate',
+  'VT PreciseOrb Intermediate',
+  'VT Plaza Intermediate',
+  'VT Air Intermediate',
+  'VT PatStrafe Intermediate',
+  'VT AirStrafe Intermediate',
+  'VT psalmTS Intermediate',
+  'VT skyTS Intermediate',
+  'VT evaTS Intermediate',
+  'VT bounceTS Intermediate'
+];
 
 ?>
 
 <head>
   <link rel="stylesheet" href="../styles/vt-s4.scss">
-  <link rel="stylesheet" href="styles/components/navbar.scss">
+  <!-- <link rel="stylesheet" href="../styles/components/navbar.scss"> -->
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -146,16 +148,9 @@ foreach ($scenarios as $scene) {
 
 <body class='bd'>
 
-  <div class="tab-list" role="tablist">
-    <button hx-get="../benchmarks/vt4_novice.php" role="tab" aria-selected="false" aria-controls="#tr" hx-swap='innerHTML'>Tab 1</button>
-    <button hx-get="../benchmarks/vt4_controller.php" class="selected" role="tab" aria-selected="true" aria-controls="#tr" hx-swap='innerHTML'>Tab 2</button>
-  </div>
-
-
   <form method="GET" id="my_form"></form>
-
   <div class='tab-container'>
-    <span>Voltaic KvKs Intermediate Benchmarks S4 - Intermediate</span>
+    <span>Voltaic KvKs Benchmarks S4 - Novice</span>
     <table id='tab-content'>
       <tr class='head'>
         <th>Scenario</th>
@@ -163,107 +158,21 @@ foreach ($scenarios as $scene) {
         <th>High Score</th>
         <th>Rank</th>
       </tr>
-      <tr>
-        <td class='dynamic'> VT Pasu Rasp Intermediate</td>
-        <td><input type="number" name="rasp" form="my_form" /></td>
-        <td class='<?= $_SESSION['rasp'] ?>'><?= $_SESSION['rasp'] ?></td>
-        <td class='<?= $_SESSION['rasp_rank'] ?>'><?= $_SESSION['rasp_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='dynamic'> VT Bounceshot Intermediate</td>
-        <td><input type="number" name="bounceshot" form="my_form" /></td>
-        <td class='<?= $_SESSION['bounceshot'] ?>'><?= $_SESSION['bounceshot'] ?></td>
-        <td class='<?= $_SESSION['bounceshot_rank'] ?>'><?= $_SESSION['bounceshot_rank']  ?></td>
-      </tr>
-      <tr>
-        <td class='static'> VT 1w5s Rasp Intermediate</td>
-        <td><input type="number" name="onew5ts" form="my_form" /></td>
-        <td class='<?= $_SESSION['onew5ts'] ?>'><?= $_SESSION['onew5ts'] ?></td>
-        <td class='<?= $_SESSION['onew5ts_rank'] ?>'><?= $_SESSION['onew5ts_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='static'> VT Multiclick 120 Intermediate</td>
-        <td><input type="number" name="multiclick" form="my_form" /></td>
-        <td class='<?= $_SESSION['multiclick'] ?>'><?= $_SESSION['multiclick'] ?></td>
-        <td class='<?= $_SESSION['multiclick_rank'] ?>'><?= $_SESSION['multiclick_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='strafe'> VT AngleStrafe Intermediate</td>
-        <td><input type="number" name="anglestrafe" form="my_form" /></td>
-        <td class='<?= $_SESSION['anglestrafe'] ?>'><?= $_SESSION['anglestrafe'] ?></td>
-        <td class='<?= $_SESSION['anglestrafe_rank'] ?>'><?= $_SESSION['anglestrafe_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='strafe'> VT ArcStrafe Intermediate</td>
-        <td><input type="number" name="arcstrafe" form="my_form" /></td>
-        <td class='<?= $_SESSION['arcstrafe'] ?>'><?= $_SESSION['arcstrafe'] ?></td>
-        <td class='<?= $_SESSION['arcstrafe_rank'] ?>'><?= $_SESSION['arcstrafe_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='precise'> VT Smoothbot Intermediate</td>
-        <td><input type="number" name="smoothbot" form="my_form" /></td>
-        <td class='<?= $_SESSION['smoothbot'] ?>'><?= $_SESSION['smoothbot'] ?></td>
-        <td class='<?= $_SESSION['smoothbot_rank'] ?>'><?= $_SESSION['smoothbot_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='precise'> VT PreciseOrb Intermediate</td>
-        <td><input type="number" name="preciseorb" form="my_form" /></td>
-        <td class='<?= $_SESSION['preciseorb'] ?>'><?= $_SESSION['preciseorb'] ?></td>
-        <td class='<?= $_SESSION['preciseorb_rank'] ?>'><?= $_SESSION['preciseorb_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='reactive'> VT Plaza Intermediate</td>
-        <td><input type="number" name="plaza" form="my_form" /></td>
-        <td class='<?= $_SESSION['plaza'] ?>'><?= $_SESSION['plaza'] ?></td>
-        <td class='<?= $_SESSION['plaza_rank'] ?>'><?= $_SESSION['plaza_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='reactive'> VT Air Intermediate</td>
-        <td><input type="number" name="air" form="my_form" /></td>
-        <td class='<?= $_SESSION['air'] ?>'><?= $_SESSION['air'] ?></td>
-        <td class='<?= $_SESSION['air_rank'] ?>'><?= $_SESSION['air_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='strafe'> VT PatStrafe Intermediate</td>
-        <td><input type="number" name="patstrafe" form="my_form" /></td>
-        <td class='<?= $_SESSION['patstrafe'] ?>'><?= $_SESSION['patstrafe'] ?></td>
-        <td class='<?= $_SESSION['patstrafe_rank'] ?>'><?= $_SESSION['patstrafe_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='strafe'> VT AirStrafe Intermediate</td>
-        <td><input type="number" name="airstrafe" form="my_form" /></td>
-        <td class='<?= $_SESSION['airstrafe'] ?>'><?= $_SESSION['airstrafe'] ?></td>
-        <td class='<?= $_SESSION['airstrafe_rank'] ?>'><?= $_SESSION['airstrafe_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='speed'> VT psalmTS Intermediate</td>
-        <td><input type="number" name="psalmts" form="my_form" /></td>
-        <td class='<?= $_SESSION['psalmts'] ?>'><?= $_SESSION['psalmts'] ?></td>
-        <td class='<?= $_SESSION['psalmts_rank'] ?>'><?= $_SESSION['psalmts_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='speed'> VT skyTS Intermediate</td>
-        <td><input type="number" name="skyts" form="my_form" /></td>
-        <td class='<?= $_SESSION['skyts'] ?>'><?= $_SESSION['skyts'] ?></td>
-        <td class='<?= $_SESSION['skyts_rank'] ?>'><?= $_SESSION['skyts_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='evasive'> VT evaTS Intermediate</td>
-        <td><input type="number" name="evats" form="my_form" /></td>
-        <td class='<?= $_SESSION['evats'] ?>'><?= $_SESSION['evats'] ?></td>
-        <td class='<?= $_SESSION['evats_rank'] ?>'><?= $_SESSION['evats_rank'] ?></td>
-      </tr>
-      <tr>
-        <td class='evasive'> VT bounceTS Intermediate</td>
-        <td><input type="number" name="bouncets" form="my_form" /></td>
-        <td class='<?= $_SESSION['bouncets'] ?>'><?= $_SESSION['bouncets'] ?></td>
-        <td class='<?= $_SESSION['bouncets_rank'] ?>'><?= $_SESSION['bouncets_rank'] ?></td>
-      </tr>
+
+      <?php foreach ($scenarios as $scene) : ?>
+        <tr>
+          <td class='<?= $scores[$scene][1][2] ?>'><?= str_replace($scenarios, $replace, $scene) ?></td>
+          <td><input type="number" name='<?= $scene ?>' form="my_form" /></td>
+          <td class="hs"> <?= $_SESSION[$scene] ?> </td>
+          <td class='<?= $_SESSION[$scene . "_rank"] ?>'><?= $_SESSION[$scene . "_rank"] ?></td>
+        </tr>
+      <?php endforeach; ?>
+
     </table>
-    <button type="submit" form="my_form" class="sb">Apply Changes</button>
+    <button class="submit-btn" type="submit" form="my_form">Apply changes</button>
   </div>
 
 
 
+
 </body>
-<td><input type="number" name="preciseorb" form="my_form" /></ <td><input type="number" name="preciseorb" form="my_form" /></ <td><input type="number" name="preciseorb" form="my_form" /></

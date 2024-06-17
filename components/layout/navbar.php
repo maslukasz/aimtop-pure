@@ -37,7 +37,7 @@
                     <div class="navbar-item">
                         <div class="buttons">
                             <button class="button is-ghost"> <a href="https://discord.gg/QJauGpg7zg" target="_blank">Discord</a> </button>
-                            <button class="button is-ghost"> <a href="https://x.com/aimtop_hub" target="_blank">Twitter</a> </button>
+                            <button class="button is-ghost"> <a href="https://x.com/aimtop_online" target="_blank">Twitter</a> </button>
                             <?php if (!isset($_SESSION["user_id"])) : ?>
                                 <a href="../register.php" class="button is-dark">Sign Up</a>
                                 <a href="../login.php" class="button is-success">Login</a>

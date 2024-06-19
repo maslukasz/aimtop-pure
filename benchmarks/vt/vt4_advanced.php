@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
     // User is not logged in, redirect to login page
-    header('Location: ../login.php');
+    header('Location: ../../login.php');
     exit();
 }
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
@@ -135,13 +135,13 @@ $replace = [
 ?>
 
 <head>
-    <link rel="stylesheet" href="../styles/vt-s4.scss">
+    <link rel="stylesheet" href="../../styles/vt-s4.scss">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body class='bd'>
-    <?php require_once '../components/layout/navbar.php'; ?>
+    <?php require_once '../../components/layout/navbar.php'; ?>
 
     <form method="GET" id="my_form"></form>
     <div class='tab-container'>

@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['user_id'])) {
   // User is not logged in, redirect to login page
-  header('Location: ../login.php');
+  header('Location: ../../login.php');
   exit();
 }
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
@@ -105,14 +105,14 @@ $replace = ['VT Pasu Rasp Novice', 'VT Bounceshot Novice', 'VT 1w6ts Rasp Novice
 ?>
 
 <head>
-  <link rel="stylesheet" href="../styles/vt-s4.scss">
-  <!-- <link rel="stylesheet" href="../styles/components/navbar.scss"> -->
+  <link rel="stylesheet" href="../../styles/vt-s4.scss">
+  <!-- <link rel="stylesheet" href="../../styles/components/navbar.scss"> -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
-<?php require_once '../components/layout/navbar.php'; ?>
+<?php require_once '../../components/layout/navbar.php'; ?>
 
 <body>
 

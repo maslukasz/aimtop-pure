@@ -50,9 +50,9 @@ if ($conn->connect_error) {
             </div>
           </div>
           <footer class="card-footer">
-            <a href="benchmarks/vt4_novice.php" class="card-footer-item"><button class="button is-success">Novice</button></a>
-            <a href="benchmarks/vt4_intermediate.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
-            <a href="benchmarks/vt4_advanced.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
+            <a href="benchmarks/vt/vt4_novice.php" class="card-footer-item"><button class="button is-success">Novice</button></a>
+            <a href="benchmarks/vt/vt4_intermediate.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
+            <a href="benchmarks/vt/vt4_advanced.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
           </footer>
         </div>
       </div>
@@ -69,7 +69,7 @@ if ($conn->connect_error) {
             </div>
           </div>
           <footer class="card-footer">
-            <a href="#" class="card-footer-item"><button class="button is-success" disabled>Novice</button></a>
+            <a href="benchmarks/ra/al_easy.php" class="card-footer-item"><button class="button is-success">Easy</button></a>
             <a href="benchmarks/ra/al_medium.php" class="card-footer-item"><button class="button is-warning">Medium</button></a>
             <a href="benchmarks/ra/al_hard.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
           </footer>

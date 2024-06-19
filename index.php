@@ -8,11 +8,10 @@ session_start();
 // }
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
 
-// // Check connection
+// Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
 
 
 ?>
@@ -20,8 +19,7 @@ if ($conn->connect_error) {
 <head>
   <link rel='stylesheet' href="styles/layouts/index.scss">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-  <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
-  <title>VT S4 INTER</title>
+  <title>aimtop [alpha]</title>
 
 </head>
 
@@ -53,7 +51,7 @@ if ($conn->connect_error) {
           </div>
           <footer class="card-footer">
             <a href="benchmarks/vt4_novice.php" class="card-footer-item"><button class="button is-success">Novice</button></a>
-            <a href="benchmarks/vt4_controller.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
+            <a href="benchmarks/vt4_intermediate.php" class="card-footer-item"><button class="button is-warning">Intermediate</button></a>
             <a href="benchmarks/vt4_advanced.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
           </footer>
         </div>
@@ -66,14 +64,14 @@ if ($conn->connect_error) {
           </header>
           <div class="card-content">
             <div class="content">
-
-              <progress class="progress is-success" value="60" max="100">
-                60%
-              </progress>
+              <span class="tag is-link">Aimlab</span><br><br>
+              <a href="https://x.com/Revosect target=' _blank'">@Revosect</a> x <a href="https://x.com/aimlab target=' _blank'">@Aimlabs</a> Benchmarks
             </div>
           </div>
           <footer class="card-footer">
-            <a aria-disabled="true" class="card-footer-item is-warning">Soon</a>
+            <a href="#" class="card-footer-item"><button class="button is-success" disabled>Novice</button></a>
+            <a href="benchmarks/ra/al_medium.php" class="card-footer-item"><button class="button is-warning">Medium</button></a>
+            <a href="#" class="card-footer-item"><button class="button is-danger" disabled>Advanced</button></a>
           </footer>
         </div>
       </div>

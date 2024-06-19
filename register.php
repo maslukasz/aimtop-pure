@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// Database connection
 $conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
 
 // Check connection
@@ -38,12 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-
 <head>
-  <link rel="stylesheet" href="styles/css/login.css">
-  <title>Register</title>
+  <link rel="stylesheet" href="styles/layouts/login.scss">
+  <title>Login</title>
 </head>
 
 <body>
@@ -72,5 +67,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 
 </body>
-
-</html>

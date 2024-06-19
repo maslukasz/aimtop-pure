@@ -71,7 +71,7 @@ if ($conn->connect_error) {
           <footer class="card-footer">
             <a href="#" class="card-footer-item"><button class="button is-success" disabled>Novice</button></a>
             <a href="benchmarks/ra/al_medium.php" class="card-footer-item"><button class="button is-warning">Medium</button></a>
-            <a href="#" class="card-footer-item"><button class="button is-danger" disabled>Advanced</button></a>
+            <a href="benchmarks/ra/al_hard.php" class="card-footer-item"><button class="button is-danger">Advanced</button></a>
           </footer>
         </div>
       </div>

@@ -157,7 +157,7 @@ $replace = [
 
     <form method="GET" id="my_form"></form>
     <div class='tab-container'>
-        <span>Revosect Aimlabs Benchmarks - Medium</span>
+        <span>Revosect Aimlabs Benchmarks - Medium <br>[<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2777611978" target="_blank">Link to the playlist</a>]</span>
         <table id='tab-content'>
             <tr class='head'>
                 <th>Scenario</th>

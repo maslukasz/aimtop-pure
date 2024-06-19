@@ -60,7 +60,7 @@ if ($conn->connect_error) {
       <div class="column">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">Work in progress...</p>
+            <p class="card-header-title">Revosect x Aimlabs</p>
           </header>
           <div class="card-content">
             <div class="content">

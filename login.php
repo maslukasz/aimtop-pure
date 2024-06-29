@@ -1,35 +1,30 @@
 <?php
 session_start();
 
-// Database connection
-$conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+// Database pdoection
+require 'src/database/connection.php';
 
 // Login logic
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = $_POST["name"];
   $password = $_POST["password"];
 
-  $stmt = $conn->prepare("SELECT * FROM users WHERE name=?");
-  $stmt->bind_param("s", $name);
-  $stmt->execute();
-  $result = $stmt->get_result();
-
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if (password_verify($password, $row["password"])) {
-      $_SESSION["user_id"] = $row["id"];
+  $stmt = $pdo->prepare("SELECT * FROM users WHERE name=:name");
+  // $stmt->bind_param("s", $name);
+  $stmt->execute(['name' => $name]);
+  $result = $stmt->fetchAll()[0];
+  $r = $result;
+  print_r($result['password']);
+  if ($result != []) {
+    if (password_verify($password, $r['password'])) {
+      $_SESSION["user_id"] = $r["id"];
       header("Location: index.php");
       exit();
     } else {
-      $error = "Invalid name or password";
+      $error = "Invalid username or password";
     }
   } else {
-    $error = "Invalid name or password";
+    $error = "Invalid username or password";
   }
 }
 ?>

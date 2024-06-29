@@ -1,13 +1,8 @@
 <?php
 session_start();
-$conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'));
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Registration logic
+require 'src/database/connection.php';
+// Check connectio// Registration logic
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username"];
   $password = $_POST["password"];
@@ -15,21 +10,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-  // Check if email already exists
-  $stmt = $conn->prepare("SELECT * FROM users WHERE name=?");
-  $stmt->bind_param("s", $username);
-  $stmt->execute();
-  $result = $stmt->get_result();
+  $stmt = $pdo->prepare("SELECT * FROM users WHERE name=:name");
+  $stmt->execute(['name' => $username]);
+  $result = $stmt->fetchAll()[0];
+  $r = $result;
 
-  if ($result->num_rows > 0) {
+  /*
+  EDUCATION NOTES:
+  fetchAll() return [] if null
+  fetch() return false if null
+  */
+
+  if ($result != []) {
     $error = "User with this name already exists";
   } else if ($password != $confirmPassword) {
     $error = "Passwords do not match";
   } else {
     // Insert new user
-    $stmt = $conn->prepare("INSERT INTO users (password, name) VALUES (?, ?)");
-    $stmt->bind_param("ss", $hashPassword, $username);
-    $stmt->execute();
+    $stmt = $pdo->prepare("INSERT INTO users (password, name) VALUES (:password, :username)");
+    $stmt->execute(['password' => $hashPassword, 'username' => $username]);
     header("Location: index.php");
     exit();
   }
